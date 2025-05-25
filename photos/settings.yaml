@@ -1,0 +1,71 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: settings
+  namespace: photos
+  labels:
+    app.kubernetes.io/name: photos
+    app.kubernetes.io/instance: delightfulphotos
+data:
+  APP_NAME: "Pixelfed"
+  APP_DEBUG: "false"
+
+  APP_URL: "https://delightful.photos"
+  APP_DOMAIN: "delightful.photos"
+  ADMIN_DOMAIN: "delightful.photos"
+  SESSION_DOMAIN: "delightful.photos"
+  TRUST_PROXIES: "*"
+
+  OPEN_REGISTRATION: "false"
+  PF_USER_INVITES: "true"
+  ENFORCE_EMAIL_VERIFICATION: "true"
+  PF_MAX_USERS: "1000"
+  OAUTH_ENABLED: "true"
+  ENABLE_CONFIG_CACHE: "true"
+  INSTANCE_DISCOVER_PUBLIC: "true"
+  INSTANCE_PUBLIC_HASHTAGS: "true"
+  PF_HIDE_NSFW_ON_PUBLIC_FEEDS: "true"
+
+  PF_OPTIMIZE_IMAGES: "true"
+  IMAGE_QUALITY: "80"
+  MAX_PHOTO_SIZE: "15000"
+  MAX_AVATAR_SIZE: "15000"
+  MAX_CAPTION_LENGTH: "500"
+  MAX_ALBUM_LENGTH: "4"
+  MAX_BIO_LENGTH: "500"
+
+  DB_CONNECTION: "mysql"
+  DB_PORT: "3306"
+  REDIS_CLIENT: "predis"
+  REDIS_SCHEME: "tcp"
+  REDIS_PORT: "6379"
+
+  CACHE_DRIVER: "redis"
+  QUEUE_DRIVER: "redis"
+  BROADCAST_DRIVER: "log"
+  LOG_CHANNEL: "stderr"
+  LOG_STACK: "single"
+  LOG_LEVEL: "debug"
+
+  ACTIVITY_PUB: "true"
+  AP_REMOTE_FOLLOW: "true"
+  AP_INBOX: "true"
+  AP_OUTBOX: "true"
+  AP_SHAREDINBOX: "true"
+  EXP_EMC: "true"  # Use Mastodon API compatibility
+
+  MAIL_DRIVER: smtp
+  MAIL_HOST: smtp.postmarkapp.com
+  MAIL_PORT: "587"
+  MAIL_ENCRYPTION: "tls"
+  MAIL_FROM_ADDRESS: "photos@delightful.photos"
+  MAIL_FROM_NAME: "Delightful Photos"
+
+  PF_ENABLE_CLOUD: "true"
+  PF_LOCAL_AVATAR_TO_CLOUD: "true"
+  MEDIA_REMOTE_STORE_CLOUD: "true"
+  FILESYSTEM_CLOUD: "s3"
+  AWS_DEFAULT_REGION: eu-west-2
+  AWS_BUCKET: delightfulphotos
+  AWS_USE_PATH_STYLE_ENDPOINT: "false"
