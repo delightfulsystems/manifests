@@ -22,7 +22,7 @@ spec:
       initContainers:
         - name: setup-nginx-files
           command: ["/bin/sh", "-c", "cp -r /var/www/html/. /data"]
-          image: ghcr.io/delightfulsystems/photos:0.12.6
+          image: ghcr.io/delightfulsystems/photos:020f0de0f
           imagePullPolicy: Always
           volumeMounts:
             - name: shared-files
@@ -33,14 +33,14 @@ spec:
             - "/bin/sh"
             - "-c"
             - "cp -r /var/www/html/storage/app/public/. /data"
-          image: ghcr.io/delightfulsystems/photos:0.12.6
+          image: ghcr.io/delightfulsystems/photos:020f0de0f
           imagePullPolicy: Always
           volumeMounts:
             - name: shared-files
               mountPath: /data
 
       containers:
-        - image: ghcr.io/delightfulsystems/photos:0.12.6
+        - image: ghcr.io/delightfulsystems/photos:020f0de0f
           name: php
           envFrom:
             - configMapRef:
@@ -63,7 +63,7 @@ spec:
               mountPath: /var/www/html/storage/app/public
 
 
-        - image: ghcr.io/delightfulsystems/photos:0.12.6
+        - image: ghcr.io/delightfulsystems/photos:020f0de0f
           name: horizon
           command: ["/bin/bash"]
           args: ["-c", "php artisan horizon"]
