@@ -28,17 +28,6 @@ spec:
             - name: shared-files
               mountPath: /data
 
-        - name: setup-media-files
-          command:
-            - "/bin/sh"
-            - "-c"
-            - "cp -r /var/www/html/storage/app/public/. /data"
-          image: ghcr.io/delightfulsystems/photos:dbf3d390c
-          imagePullPolicy: Always
-          volumeMounts:
-            - name: shared-files
-              mountPath: /data
-
       containers:
         - image: ghcr.io/delightfulsystems/photos:dbf3d390c
           name: php
@@ -59,9 +48,6 @@ spec:
             - name: nginx-config-volume
               mountPath: /etc/nginx/conf.d/default.conf
               subPath: default.conf
-            - name: media
-              mountPath: /var/www/html/storage/app/public
-
 
         - image: ghcr.io/delightfulsystems/photos:dbf3d390c
           name: horizon
